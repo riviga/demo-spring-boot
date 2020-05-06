@@ -50,13 +50,53 @@
         </goals>
     </action>
     <action>
-        <actionName>CUSTOM-allure serve</actionName>
-        <displayName>allure serve</displayName>
+        <actionName>CUSTOM-allure-serve</actionName>
+        <displayName>allure-serve</displayName>
         <goals>
             <goal>clean</goal>
             <goal>verify</goal>
             <goal>allure:report</goal>
             <goal>allure:serve</goal>
         </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-jacoco</actionName>
+        <displayName>jacoco</displayName>
+        <goals>
+            <goal>clean</goal>
+            <goal>jacoco:prepare-agent</goal>
+            <goal>test</goal>
+            <goal>jacoco:report</goal>
+            <goal>jacoco:prepare-agent-integration</goal>
+            <goal>verify</goal>
+            <goal>jacoco:report-integration</goal>
+        </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-sonar</actionName>
+        <displayName>sonar</displayName>
+        <goals>
+            <goal>clean</goal>
+            <goal>jacoco:prepare-agent</goal>
+            <goal>test</goal>
+            <goal>jacoco:report</goal>
+            <goal>jacoco:prepare-agent-integration</goal>
+            <goal>verify</goal>
+            <goal>jacoco:report-integration</goal>
+            <goal>sonar:sonar</goal>
+        </goals>
+        <activatedProfiles>
+            <activatedProfile>owasp</activatedProfile>
+        </activatedProfiles>
+    </action>
+    <action>
+        <actionName>CUSTOM-sonar-server</actionName>
+        <displayName>sonar-server</displayName>
+        <goals>
+            <goal>exec:exec</goal>
+        </goals>
+        <properties>
+            <exec.executable>./dev-scripts/docker/sonar</exec.executable>
+        </properties>
     </action>
 </actions>

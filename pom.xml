@@ -28,7 +28,9 @@
         <allure.version>2.13.3</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-report.version>2.4.1</allure-report.version>
+        <jacoco-maven.version>0.8.5</jacoco-maven.version>
         <dependency-check-maven.version>5.3.2</dependency-check-maven.version>
+        <sonar.dependencyCheck.htmlReportPath>${project.build.directory}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
     </properties>
 
     <dependencies>
@@ -132,6 +134,11 @@
                 <configuration>
                     <reportVersion>${allure-report.version}</reportVersion>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven.version}</version>
             </plugin>
         </plugins>
     </build>

@@ -19,7 +19,6 @@ public class GetUserByIdService {
     @Transactional(readOnly = true)
     public UserDto getUserById(@NonNull Long userId) {
         User user = userRepository.getOne(userId);
-        UserDto userDto = userMapper.map(user);
-        return userDto;
+        return userMapper.map(user);
     }
 }
