@@ -5,7 +5,7 @@ import com.example.demo.services.CreateUserService;
 import com.example.demo.services.DeleteUserByIdService;
 import com.example.demo.services.GetAllUsersService;
 import com.example.demo.services.GetUserByIdService;
-import com.example.demo.services.SearchUserByNameService;
+import com.example.demo.services.SearchUsersByNameService;
 import com.example.demo.services.UpdateUserService;
 import java.util.List;
 import javax.validation.Valid;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UpdateUserService updateUserService;
-    private final SearchUserByNameService searchUserByNameService;
+    private final SearchUsersByNameService searchUsersByNameService;
     private final CreateUserService createUserService;
     private final GetAllUsersService getAllUsersService;
     private final GetUserByIdService getUserByIdService;
@@ -47,8 +47,8 @@ public class UserController {
     }
 
     @GetMapping("/search")
-    public List<UserDto> searchUserByName(@RequestParam("name") String name) {
-        return searchUserByNameService.searchUserByName(name);
+    public List<UserDto> searchUsersByName(@RequestParam("name") String name) {
+        return searchUsersByNameService.searchUsersByName(name);
     }
 
     @PostMapping

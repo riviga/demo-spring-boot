@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class SearchUserByNameService {
+public class SearchUsersByNameService {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
     @Transactional(readOnly = true)
-    public List<UserDto> searchUserByName(@NonNull String name) {
+    public List<UserDto> searchUsersByName(@NonNull String name) {
         return userRepository.findByName(name).stream()
                 .map(userMapper::map)
                 .collect(Collectors.toList());
