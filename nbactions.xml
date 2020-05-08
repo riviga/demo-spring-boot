@@ -96,7 +96,14 @@
             <goal>exec:exec</goal>
         </goals>
         <properties>
-            <exec.executable>./dev-scripts/docker/sonar</exec.executable>
+            <exec.executable>./dev-scripts/docker/sonar.sh</exec.executable>
         </properties>
+    </action>
+        <action>
+        <actionName>CUSTOM-archetype</actionName>
+        <displayName>archetype</displayName>
+        <goals>
+            <goal>archetype:create-from-project</goal>
+        </goals>
     </action>
 </actions>
