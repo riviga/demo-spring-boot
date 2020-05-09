@@ -40,8 +40,7 @@ public class UpdateUserServiceTest {
     }
 
     @Test
-    @Tag("happy-path")
-    public void test_change_name_user() {
+    public void testChangeNameUserHappyCase() {
         // Given
         User defaultNameUser = userMother.defaultNameUser();
         UserDto john = userMother.johnDto();
@@ -56,8 +55,7 @@ public class UpdateUserServiceTest {
     }
 
     @Test
-    @Tag("exception")
-    public void test_update_user_not_found() {
+    public void testUpdateUserNotFoundException() {
         // Given
         UserDto john = userMother.johnDto();
         EntityNotFoundException expectedException = new EntityNotFoundException();
@@ -72,8 +70,7 @@ public class UpdateUserServiceTest {
     }
 
     @Test
-    @Tag("exception")
-    public void test_update_user_null_pointer_exception() {
+    public void testUpdateUserNullPointerException() {
         // Given
         UserDto nullUser = null;
 
@@ -85,8 +82,7 @@ public class UpdateUserServiceTest {
     }
 
     @Test
-    @Tag("exception")
-    public void test_update_user_null_id_exception() {
+    public void testUpdateUserIdNullPointerException() {
         // Given
         String expectedErrorMessage = "El identificador no puede ser nulo";
         UserDto userWithNoId = userMother.userWithNoId();
@@ -101,8 +97,7 @@ public class UpdateUserServiceTest {
     }
 
     @Test
-    @Tag("exception")
-    public void test_update_user_null_name_exception() {
+    public void testUpdateUserNameNullPointerException() {
         // Given
         String expectedErrorMessage = "El nombre no puede ser nulo";
         UserDto userWithNoName = userMother.userWithNoName();

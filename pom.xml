@@ -29,6 +29,8 @@
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-report.version>2.4.1</allure-report.version>
         <jacoco-maven.version>0.8.5</jacoco-maven.version>
+        <vavr.version>0.10.1</vavr.version>
+        <guava.version>29.0-jre</guava.version>
         <dependency-check-maven.version>5.3.2</dependency-check-maven.version>
         <sonar.dependencyCheck.htmlReportPath>${project.build.directory}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
     </properties>
@@ -64,17 +66,19 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>${springdoc-openapi.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency>
+        
+        <!-- Documentation API Rest -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc-openapi.version}</version>
         </dependency>
         
         <!-- Testing -->
@@ -103,6 +107,7 @@
             <scope>test</scope>
         </dependency>
         
+        <!-- Documentation Test -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber5-jvm</artifactId>

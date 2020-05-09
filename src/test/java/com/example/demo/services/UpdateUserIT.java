@@ -23,13 +23,11 @@ public class UpdateUserIT {
     private UserMother userMother = new UserMother();
 
     @Test
-    @Tag("happy-path")
-    void test_update_user() throws Exception {
+    void testChangeNameUserHappyCase() throws Exception {
         // Given
         String expectedName = "John";
         UserDto noNameUser = userMother.defaultNameUserDto();
         UserDto john = userMother.johnDto();
-        
         userAgent.createUser(noNameUser);
 
         // When
@@ -42,8 +40,7 @@ public class UpdateUserIT {
     }
 
     @Test
-    @Tag("exception")
-    void test_update_user_fail() throws Exception {
+    void testUpdateUserNotFoundException() throws Exception {
         // Given
         UserDto notExistUser = userMother.notExistUser();
 

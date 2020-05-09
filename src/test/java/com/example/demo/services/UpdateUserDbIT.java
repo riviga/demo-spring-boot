@@ -28,8 +28,7 @@ public class UpdateUserDbIT {
     private UserMother userMother = new UserMother();
 
     @Test
-    @Tag("happy-path")
-    public void test_change_name_user() {
+    public void testChangeNameUserHappyCase() {
         // Given
         User defaultNameUser = userMother.defaultNameUser();
         UserDto john = userMother.johnDto();
