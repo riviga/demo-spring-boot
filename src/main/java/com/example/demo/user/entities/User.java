@@ -1,4 +1,4 @@
-package com.example.demo.entities;
+package com.example.demo.user.entities;
 
 import java.io.Serializable;
 import javax.persistence.Column;

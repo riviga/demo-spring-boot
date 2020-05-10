@@ -1,9 +1,10 @@
-package com.example.demo.services;
+package com.example.demo.user.services;
 
-import com.example.demo.dtos.UserDto;
-import com.example.demo.entities.User;
-import com.example.demo.mappers.UserMapper;
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.user.UserMother;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.entities.User;
+import com.example.demo.user.mappers.UserMapper;
+import com.example.demo.user.repositories.UserRepository;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -39,8 +40,7 @@ public class SearchUsersByNameServiceTest {
     }
 
     @Test
-    @Tag("happy-path")
-    public void test_search_users_by_name() {
+    public void testSearchUsersByNameHappyCase() {
         // Given
         String name = "John";
         List<User> users = Arrays.asList(userMother.john(), userMother.john2(), userMother.john3());
@@ -55,8 +55,7 @@ public class SearchUsersByNameServiceTest {
     }
 
     @Test
-    @Tag("happy-path")
-    public void test_search_users_by_name1() {
+    public void testSearchUsersByNameOneHappyCase() {
         // Given
         String name = "John";
         List<User> users = Arrays.asList(userMother.john());
@@ -71,8 +70,7 @@ public class SearchUsersByNameServiceTest {
     }
 
     @Test
-    @Tag("happy-path")
-    public void test_search_users_by_name_empty() {
+    public void testSearchUsersByNameEmptyHappyCase() {
         // Given
         String name = "John";
         List<User> users = Collections.emptyList();
@@ -87,8 +85,7 @@ public class SearchUsersByNameServiceTest {
     }
 
     @Test
-    @Tag("exception")
-    public void test_search_users_by_name_null_pointer_exception() {
+    public void testSearchUsersByNameNullPointerException() {
         // Given
         String name = null;
 

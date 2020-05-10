@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package com.example.demo.user.cucumber;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/update-user.feature",
         plugin = {"pretty", "html:target/cucumber/update-user.html"})
 @RunWith(Cucumber.class)
-public class UpdateUserCucumberIT {
+public class UpdateUserIT {
 
 }

@@ -1,7 +1,7 @@
-package com.example.demo.services;
+package com.example.demo.user;
 
-import com.example.demo.dtos.UserDto;
-import com.example.demo.entities.User;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.entities.User;
 
 public class UserMother {
 

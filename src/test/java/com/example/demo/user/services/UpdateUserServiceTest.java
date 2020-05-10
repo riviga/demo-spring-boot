@@ -1,9 +1,10 @@
-package com.example.demo.services;
+package com.example.demo.user.services;
 
-import com.example.demo.dtos.UserDto;
-import com.example.demo.entities.User;
-import com.example.demo.mappers.UserMapper;
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.user.UserMother;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.entities.User;
+import com.example.demo.user.mappers.UserMapper;
+import com.example.demo.user.repositories.UserRepository;
 import javax.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;

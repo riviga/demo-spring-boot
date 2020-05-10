@@ -1,9 +1,11 @@
-package com.example.demo.services;
+package com.example.demo.user.it;
 
-import com.example.demo.dtos.UserDto;
-import com.example.demo.entities.User;
-import com.example.demo.mappers.UserMapperImpl;
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.entities.User;
+import com.example.demo.user.mappers.UserMapperImpl;
+import com.example.demo.user.repositories.UserRepository;
+import com.example.demo.user.services.UpdateUserService;
+import com.example.demo.user.UserMother;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

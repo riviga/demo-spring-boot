@@ -1,6 +1,8 @@
-package com.example.demo.services;
+package com.example.demo.user.it;
 
-import com.example.demo.dtos.UserDto;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.UserAgent;
+import com.example.demo.user.UserMother;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

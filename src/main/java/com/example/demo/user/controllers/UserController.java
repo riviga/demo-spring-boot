@@ -1,12 +1,12 @@
-package com.example.demo.controllers;
+package com.example.demo.user.controllers;
 
-import com.example.demo.dtos.UserDto;
-import com.example.demo.services.CreateUserService;
-import com.example.demo.services.DeleteUserByIdService;
-import com.example.demo.services.GetAllUsersService;
-import com.example.demo.services.GetUserByIdService;
-import com.example.demo.services.SearchUsersByNameService;
-import com.example.demo.services.UpdateUserService;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.services.CreateUserService;
+import com.example.demo.user.services.DeleteUserByIdService;
+import com.example.demo.user.services.GetAllUsersService;
+import com.example.demo.user.services.GetUserByIdService;
+import com.example.demo.user.services.SearchUsersByNameService;
+import com.example.demo.user.services.UpdateUserService;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;

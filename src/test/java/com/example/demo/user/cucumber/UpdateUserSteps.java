@@ -1,6 +1,7 @@
-package com.example.demo.services;
+package com.example.demo.user.cucumber;
 
-import com.example.demo.dtos.UserDto;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.UserAgent;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
-public class UpdateUserCucumberSteps {
+public class UpdateUserSteps {
 
     private final UserAgent userAgent;
 

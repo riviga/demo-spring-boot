@@ -1,4 +1,4 @@
-package com.example.demo.dtos;
+package com.example.demo.user.dtos;
 
 import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

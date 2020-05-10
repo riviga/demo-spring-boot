@@ -1,6 +1,6 @@
-package com.example.demo.services;
+package com.example.demo.user.services;
 
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.user.repositories.UserRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

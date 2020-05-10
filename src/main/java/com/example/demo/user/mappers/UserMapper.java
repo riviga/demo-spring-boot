@@ -1,7 +1,7 @@
-package com.example.demo.mappers;
+package com.example.demo.user.mappers;
 
-import com.example.demo.dtos.UserDto;
-import com.example.demo.entities.User;
+import com.example.demo.user.dtos.UserDto;
+import com.example.demo.user.entities.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
