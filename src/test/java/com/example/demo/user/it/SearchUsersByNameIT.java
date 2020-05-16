@@ -16,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("web-db")
-@SpringBootTest
+@SpringBootTest(properties = {"spring.datasource.url=jdbc:h2:mem:testdb"})
 @AutoConfigureMockMvc
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class SearchUsersByNameIT {

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @CucumberContextConfiguration
-@SpringBootTest
+@SpringBootTest(properties = {"spring.datasource.url=jdbc:h2:mem:testdb"})
 @AutoConfigureMockMvc
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class UpdateUserSteps {

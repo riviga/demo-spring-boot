@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Import;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("service-db")
-@DataJpaTest(showSql = false, properties = {})
+@DataJpaTest(showSql = false, properties = {"spring.datasource.url=jdbc:h2:mem:testdb"})
 @Import({
     UpdateUserService.class,
     UserMapperImpl.class
