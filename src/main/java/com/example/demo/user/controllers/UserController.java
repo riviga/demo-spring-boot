@@ -60,7 +60,7 @@ public class UserController {
     @PutMapping("/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public void updateUser(@PathVariable("userId") Long userId, @Valid @RequestBody UserDto userDto) {
-        userDto.setId(userId);
+        userDto = userDto.toBuilder().id(userId).build();
         updateUserService.updateUser(userDto);
     }
 

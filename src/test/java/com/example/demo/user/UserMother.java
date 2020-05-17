@@ -6,27 +6,27 @@ import com.example.demo.user.entities.User;
 public class UserMother {
 
     public UserDto defaultNameUserDto() {
-        return new UserDto(1L, "no-name");
+        return userDto(1L, "no-name");
     }
 
     public UserDto johnDto() {
-        return new UserDto(1L, "John");
+        return userDto(1L, "John");
     }
 
     public UserDto john2Dto() {
-        return new UserDto(2L, "John");
+        return userDto(2L, "John");
     }
 
     public UserDto john3Dto() {
-        return new UserDto(3L, "John");
+        return userDto(3L, "John");
     }
 
     public UserDto peterDto() {
-        return new UserDto(4L, "Peter");
+        return userDto(4L, "Peter");
     }
 
     public UserDto notExistUser() {
-        return new UserDto(0L, "No exist");
+        return userDto(0L, "No exist");
     }
 
     public User john() {
@@ -50,10 +50,14 @@ public class UserMother {
     }
 
     public UserDto userWithNoId() {
-        return new UserDto(null, "John");
+        return userDto(null, "John");
     }
 
     public UserDto userWithNoName() {
-        return new UserDto(0L, null);
+        return userDto(0L, null);
+    }
+
+    private UserDto userDto(Long id, String name) {
+        return UserDto.builder().id(id).name(name).build();
     }
 }

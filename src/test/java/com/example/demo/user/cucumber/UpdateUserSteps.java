@@ -26,13 +26,13 @@ public class UpdateUserSteps {
 
     @Given("un usuario existente con id {long} y nombre {word}")
     public void un_usuario_existente_con_id_y_nombre(long id, String name) throws Exception {
-        initialUser = new UserDto(id, name);
+        initialUser = UserDto.builder().id(id).name(name).build();
         userAgent.createUser(initialUser);
     }
 
     @When("cambiamos el nombre de este usuario por {word}")
     public void cambiamos_el_nombre_de_este_usuario_por(String newName) throws Exception {
-        UserDto userDto = new UserDto(initialUser.getId(), newName);
+        UserDto userDto = initialUser.toBuilder().name(newName).build();
         userAgent.updateUser(userDto).andExpect(status().isOk());
     }
 
