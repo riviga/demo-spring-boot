@@ -99,11 +99,21 @@
             <exec.executable>./dev-scripts/docker/sonar.sh</exec.executable>
         </properties>
     </action>
-        <action>
+    <action>
         <actionName>CUSTOM-archetype</actionName>
         <displayName>archetype</displayName>
         <goals>
             <goal>archetype:create-from-project</goal>
         </goals>
+    </action>
+    <action>
+        <actionName>CUSTOM-verify</actionName>
+        <displayName>verify</displayName>
+        <goals>
+            <goal>verify</goal>
+        </goals>
+        <activatedProfiles>
+            <activatedProfile>e2e-test</activatedProfile>
+        </activatedProfiles>
     </action>
 </actions>

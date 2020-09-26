@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
+        <version>2.3.4.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -22,15 +22,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <mapstruct.version>1.4.0.Beta1</mapstruct.version>
-        <springdoc-openapi.version>1.4.2</springdoc-openapi.version>
-        <cucumber.version>6.1.2</cucumber.version>
-        <allure.version>2.13.3</allure.version>
+        <mapstruct.version>1.4.0.Final</mapstruct.version>
+        <springdoc-openapi.version>1.4.7</springdoc-openapi.version>
+        <cucumber.version>6.7.0</cucumber.version>
+        <allure.version>2.13.5</allure.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-report.version>2.4.1</allure-report.version>
         <jacoco-maven.version>0.8.5</jacoco-maven.version>
         <vavr.version>1.0.0-alpha-3</vavr.version>
         <guava.version>29.0-jre</guava.version>
+        <testcontainers.version>1.15.0-rc1</testcontainers.version>
         <dependency-check-maven.version>5.3.2</dependency-check-maven.version>
         <sonar.dependencyCheck.htmlReportPath>${project.build.directory}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
     </properties>
@@ -117,7 +118,20 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <scope>test</scope>
+        </dependency>
         
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${testcontainers.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- Documentation Test -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -200,6 +214,56 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>e2e-test</id>
+            <properties>
+                <debug>false</debug>
+                <scenarios>scenario-base</scenarios>
+                <e2e-config-file>test/e2e-config.properties</e2e-config-file>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.dperezcabrera.cucumber</groupId>
+                        <artifactId>cucumber-data-maven-plugin</artifactId>
+                        <version>0.0.1-SNAPSHOT</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>prepare-feature-data</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <groups>${scenarios}</groups>
+                            <includes>
+                                <include>**/*E2ET.java</include>
+                            </includes>
+                            <systemPropertyVariables>
+                                <e2e-config-file>${e2e-config-file}</e2e-config-file>
+                                <debug>${debug}</debug>
+                            </systemPropertyVariables>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>

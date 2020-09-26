@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 @Tag("acceptance")
 @CucumberOptions(
-        features = "src/test/resources/features/update-user.feature",
-        plugin = {"pretty", "html:target/cucumber/update-user.html"})
+        features = "test/features/users/update-user/update-user.feature",
+        plugin = {"pretty", "html:target/cucumber/users/update-user.html"})
 @RunWith(Cucumber.class)
 public class UpdateUserIT {
 
