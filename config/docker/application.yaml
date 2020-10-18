@@ -1,0 +1,40 @@
+spring:
+    datasource:
+        hikari:
+            connectionTimeout: 20000
+            maximumPoolSize: 3
+        password: ${DATABASE_PASSWORD}
+        sqlScriptEncoding: UTF-8
+        url: ${DATABASE_URL}
+        username: ${DATABASE_USERNAME}
+    jmx:
+        enabled: false
+    jpa:
+        database-platform: ${DATABASE_PLATFORM}
+        hibernate:
+            ddl-auto: update
+        open-in-view: false
+        properties:
+            hibernate:
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+                temp:
+                    use_jdbc_metadata_defaults: false
+    main:
+        lazy-initialization: true
+
+jwt:
+    token:
+        secret: ${JWT_SECRET}
+        expiration-days: 10
+
+logging:
+    file:
+        name: app.log
+    level:
+        root: info
+        web: error
+    pattern:
+        console: '%-4relative [%thread] %-5level %logger{35} - %msg %n'
+        dateformat: yyyy-MM-dd HH:mm:ss.SSS

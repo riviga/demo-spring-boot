@@ -61,18 +61,18 @@ public class WebDriverFactory {
 
     private WebDriver createWebDriver(String name, String image, Capabilities capabilities) throws Exception {
         log.debug("Creando WebDriver {}...", name);
-        GenericContainer c = newBrowserContainer(name, image);
+        var c = newBrowserContainer(name, image);
         c.start();
-        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:" + c.getMappedPort(REMOTE_WEBDRIVER_PORT) + "/wd/hub"), capabilities);
+        var driver = new RemoteWebDriver(new URL("http://localhost:" + c.getMappedPort(REMOTE_WEBDRIVER_PORT) + "/wd/hub"), capabilities);
         log.debug("WebDriver creado: {}", name);
         return driver;
     }
 
     private WebDriver createVirtualUser(String name, String image, Capabilities capabilities) {
         try {
-            WebDriver driver = createWebDriver(name, image, capabilities);
+            var driver = createWebDriver(name, image, capabilities);
             if (debug) {
-                GenericContainer viewer = newBrowserViewerContainer(name);
+                var viewer = newBrowserViewerContainer(name);
                 viewer.start();
                 log.debug("Viewer:\n\nhttp://localhost:" + viewer.getMappedPort(DEBUG_VIEWER_PORT) + "/vnc.html?autoconnect=true&view_only=false&password=secret\n");
             }

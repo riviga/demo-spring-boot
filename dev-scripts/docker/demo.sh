@@ -32,6 +32,7 @@ DB_VOLUME=$APP_NAME-postgres
 DB_SCHEMA=$APP_NAME
 DB_USER=$APP_NAME
 DB_PASSWORD=password
+JWT_SECRET=11111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 TIMEZONE=`timedatectl | grep "Time zone" | cut -f2 -d: | cut -f2 -d" "`
 
 # Actions
@@ -79,6 +80,10 @@ function admin_db_start() {
         dpage/pgadmin4
 }
 
+function web_login(){
+    curl -i -H "Content-Type: application/json" -X POST -d '{"username": "admin", "password": "1"}' http://localhost:8080/login 2>/dev/null | grep 'Authorization: '| cut -f2- -d" "
+}
+
 function web_start() {
     _create_network
     APP_BIN=`ls target/$APP_NAME*.jar`
@@ -91,9 +96,10 @@ function web_start() {
         --env DATABASE_USERNAME="$DB_USER" \
         --env DATABASE_PASSWORD="$DB_PASSWORD" \
         --env DATABASE_PLATFORM="org.hibernate.dialect.PostgreSQLDialect" \
+        --env JWT_SECRET="$JWT_SECRET" \
         --volume "$PWD/$APP_BIN:/app/spring-boot-app.jar" \
-        --volume "$PWD/config/docker/application.properties:/app/config/application.properties" \
-        openjdk:8-jre-alpine java -jar /app/spring-boot-app.jar --spring.config.location=/app/config/application.properties
+        --volume "$PWD/config/docker/application.yaml:/app/config/application.yaml" \
+        openjdk:15-slim java -jar /app/spring-boot-app.jar --spring.config.location=/app/config/application.yaml
 }
 
 function web_debug() {
@@ -110,9 +116,9 @@ function web_debug() {
         --env DATABASE_PASSWORD="$DB_PASSWORD" \
         --env DATABASE_PLATFORM="org.hibernate.dialect.PostgreSQLDialect" \
         --volume "$PWD/$APP_BIN:/app/spring-boot-app.jar" \
-        --volume "$PWD/config/docker/application.properties:/app/config/application.properties" \
-        openjdk:8-jre-alpine java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8888,suspend=n -jar \
-            --spring.config.location=/app/config/application.properties
+        --volume "$PWD/config/docker/application.yaml:/app/config/application.yaml" \
+        openjdk:15-slim java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8888,suspend=n -jar \
+            --spring.config.location=/app/config/application.yaml
 }
 
 function admin_db_delete() {
