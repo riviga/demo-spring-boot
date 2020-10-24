@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  demo-spring-boot:
+    image: dperezcabrera/demo-spring-boot
+    environment:
+      DB_URL: "jdbc:postgresql://demo-postgres:5432/demo"
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DRIVER: org.hibernate.dialect.PostgreSQLDialect
+      JWT_SECRET: 111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+    ports:
+      - 8080:8080
+    networks:
+      - demo-network
+
+  demo-postgres:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_DB: demo
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - demo-postgres-data:/var/lib/postgresql/data
+    expose:
+      - 5432
+    networks:
+      - demo-network
+
+volumes:
+  demo-postgres-data:
+
+networks:
+  demo-network:

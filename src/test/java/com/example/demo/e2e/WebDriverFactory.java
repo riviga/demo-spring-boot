@@ -13,6 +13,7 @@ import org.testcontainers.containers.BindMode;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.Network;
 import org.testcontainers.containers.wait.strategy.Wait;
+import org.testcontainers.utility.DockerImageName;
 
 @Slf4j
 public class WebDriverFactory {
@@ -43,7 +44,7 @@ public class WebDriverFactory {
 
     private GenericContainer newBrowserContainer(String name, String image) {
         Consumer<CreateContainerCmd> cBrowser = c -> c.withName(name);
-        return new GenericContainer(image)
+        return new GenericContainer(DockerImageName.parse(image))
                 .withCreateContainerCmdModifier(cBrowser)
                 .withNetwork(network())
                 .withExposedPorts(REMOTE_WEBDRIVER_PORT)
@@ -51,7 +52,7 @@ public class WebDriverFactory {
     }
 
     private GenericContainer newBrowserViewerContainer(String seleniumContainer) {
-        return new GenericContainer(VIEWER_DEBUG_IMAGE)
+        return new GenericContainer(DockerImageName.parse(VIEWER_DEBUG_IMAGE))
                 .withNetwork(network())
                 .withEnv("REMOTE_HOST", seleniumContainer)
                 .withEnv("REMOTE_PORT", DEFAULT_VNC_PORT)

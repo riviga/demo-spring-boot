@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: demo-spring-boot
+  name: demo-spring-boot
+spec:
+  selector:
+    matchLabels:
+      service: demo-spring-boot
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  minReadySeconds: 15
+  template:
+    metadata:
+      labels:
+        demo-network: "true"
+        service: demo-spring-boot
+    spec:
+      containers:
+      - name: demo-spring-boot
+        image: dperezcabrera/demo-spring-boot:0.0.1
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: demo-configmap
+        env:    
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: demo-secrets
+              key: JWT_SECRET
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: demo-secrets
+              key: DB_PASSWORD
+ 
+      restartPolicy: Always

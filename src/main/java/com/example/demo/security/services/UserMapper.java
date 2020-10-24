@@ -4,11 +4,13 @@ import com.example.demo.security.dtos.UserDto;
 import com.example.demo.security.entities.User;
 import java.util.List;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
 
+    @Mapping(target = "password", ignore = true)
     UserDto map(User user, List<String> roles, List<String> privileges);
 
     User map(UserDto user);

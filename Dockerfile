@@ -1,14 +1,11 @@
-FROM maven:alpine AS builder
+FROM openjdk:15-slim
 LABEL maintainer "David Perez Cabrera <dperezcabrera@gmail.com>"
 
-WORKDIR /app/
-COPY . .
-RUN mvn package -Dmaven.test.skip=true
-RUN mv target/*.jar target/spring-boot-app.jar
+WORKDIR /app
 
-FROM openjdk:8-jre-alpine
+COPY target/*.jar demo-spring-boot.jar
+ADD config/docker/application.yaml config/application.yaml
+
 EXPOSE 8080
-COPY --from=builder /app/target/spring-boot-app.jar .
-ADD config/docker/application.properties config/application.properties
 
-ENTRYPOINT ["java", "-jar", "spring-boot-app.jar", "-Dspring.config.location=config/application.properties"]
+ENTRYPOINT ["java", "-jar", "demo-spring-boot.jar", "-Dspring.config.location=config/application.yaml"]

@@ -2,15 +2,15 @@ spring:
     datasource:
         hikari:
             connectionTimeout: 20000
-            maximumPoolSize: 3
-        password: ${DATABASE_PASSWORD}
+            maximumPoolSize: 5
         sqlScriptEncoding: UTF-8
-        url: ${DATABASE_URL}
-        username: ${DATABASE_USERNAME}
+        url: ${DB_URL}
+        username: ${DB_USERNAME}
+        password: ${DB_PASSWORD}
     jmx:
         enabled: false
     jpa:
-        database-platform: ${DATABASE_PLATFORM}
+        database-platform: ${DB_DRIVER}
         hibernate:
             ddl-auto: update
         open-in-view: false
@@ -24,17 +24,22 @@ spring:
     main:
         lazy-initialization: true
 
-jwt:
-    token:
-        secret: ${JWT_SECRET}
-        expiration-days: 10
-
 logging:
     file:
-        name: app.log
+        name: logs/app.log
     level:
         root: info
         web: error
     pattern:
         console: '%-4relative [%thread] %-5level %logger{35} - %msg %n'
         dateformat: yyyy-MM-dd HH:mm:ss.SSS
+
+jwt:
+    token:
+        secret: ${JWT_SECRET}
+        expiration-days: 10
+        
+server:
+    tomcat:
+        threads:
+            max: 3
