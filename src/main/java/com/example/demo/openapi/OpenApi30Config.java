@@ -6,19 +6,34 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
+import io.swagger.v3.oas.models.servers.Server;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 @Configuration
+@RequiredArgsConstructor
 public class OpenApi30Config {
 
+    private final Environment env;
+    
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI openAPI() {
         final var securitySchemeName = "bearerAuth";
         return new OpenAPI()
                 .info(info())
+                .addServersItem(new Server().url(getAppUrl()))
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(components(securitySchemeName));
+    }
+    
+    private String getAppUrl(){
+        String url = env.getProperty("app.url");
+        if (url == null) {
+            return "/";
+        }
+        return url;
     }
 
     private Info info() {

@@ -1,7 +1,6 @@
 package com.example.demo.security.domain;
 
 import com.example.demo.security.dtos.UserDto;
-import com.example.demo.security.entities.User;
 import com.example.demo.security.repositories.UserRepository;
 import com.example.demo.security.services.UserMapper;
 import lombok.AllArgsConstructor;

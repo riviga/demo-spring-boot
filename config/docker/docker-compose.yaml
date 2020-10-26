@@ -4,20 +4,21 @@ services:
   demo-spring-boot:
     image: dperezcabrera/demo-spring-boot
     environment:
-      DB_URL: "jdbc:postgresql://demo-postgres:5432/demo"
+      APP_URL: "http://localhost:3000"
+      DB_URL: "${DB_URL}"
       DB_USERNAME: ${DB_USERNAME}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DRIVER: org.hibernate.dialect.PostgreSQLDialect
-      JWT_SECRET: 111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+      JWT_SECRET: ${JWT_SECRET}
     ports:
-      - 8080:8080
+      - 30000:8080
     networks:
       - demo-network
 
   demo-postgres:
     image: postgres:12-alpine
     environment:
-      POSTGRES_DB: demo
+      POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:

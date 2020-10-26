@@ -29,7 +29,8 @@ logging:
         name: logs/app.log
     level:
         root: info
-        web: error
+        com.example.demo: debug
+        org.springframework.web: error
     pattern:
         console: '%-4relative [%thread] %-5level %logger{35} - %msg %n'
         dateformat: yyyy-MM-dd HH:mm:ss.SSS
@@ -38,8 +39,6 @@ jwt:
     token:
         secret: ${JWT_SECRET}
         expiration-days: 10
-        
-server:
-    tomcat:
-        threads:
-            max: 3
+
+app:
+    url: ${APP_URL}

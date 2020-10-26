@@ -59,7 +59,7 @@ public class JwtSecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.HEAD).denyAll()
                 .antMatchers(getWhiteListPatterns()).permitAll()
                 .anyRequest().authenticated().and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager(), jwtTokenManager))
+                .addFilter(new JwtAuthenticationFilter(authenticationManager(), jwtTokenManager))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(), jwtTokenManager))
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }

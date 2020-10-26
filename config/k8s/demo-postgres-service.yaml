@@ -13,5 +13,3 @@ spec:
   selector:
     service: demo-postgres
     app: demo
-status:
-  loadBalancer: {}

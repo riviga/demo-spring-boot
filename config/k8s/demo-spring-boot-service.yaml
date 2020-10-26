@@ -11,5 +11,4 @@ spec:
     nodePort: 30000
   selector:
     service: demo-spring-boot
-status:
-  loadBalancer: {}
+
