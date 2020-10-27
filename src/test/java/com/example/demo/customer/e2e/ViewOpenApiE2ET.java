@@ -12,7 +12,7 @@ public class ViewOpenApiE2ET {
         var factory = new WebDriverFactory();
         var webDriver = factory.createChromeUser("admin-selenium");
         var admin = new VirtualUser("admin", "admin", webDriver);
-        
+
         admin.goToDemo("/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#");
         admin.waitSeconds(30);
     }

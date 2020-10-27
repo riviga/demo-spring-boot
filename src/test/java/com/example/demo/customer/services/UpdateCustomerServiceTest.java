@@ -1,9 +1,9 @@
 package com.example.demo.customer.services;
 
-import com.example.demo.customer.services.UpdateCustomerService;
 import com.example.demo.customer.CustomerMother;
 import com.example.demo.customer.dtos.CustomerDto;
-import com.example.demo.customer.entities.Customer;
+import com.example.demo.customer.mappers.CustomerMapper;
+import com.example.demo.customer.repositories.CustomerRepository;
 import javax.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -20,9 +20,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.times;
-
-import com.example.demo.customer.mappers.CustomerMapper;
-import com.example.demo.customer.repositories.CustomerRepository;
 
 @Tag("unit-test")
 @ExtendWith(MockitoExtension.class)

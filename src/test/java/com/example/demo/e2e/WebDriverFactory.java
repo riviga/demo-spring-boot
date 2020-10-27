@@ -31,10 +31,10 @@ public class WebDriverFactory {
     private boolean debug = "true".equalsIgnoreCase(System.getProperty("debug"));
     private Network network;
 
-    public void debug(boolean debug){
+    public void debug(boolean debug) {
         this.debug = debug;
     }
-    
+
     private Network network() {
         if (network == null) {
             network = Network.newNetwork();

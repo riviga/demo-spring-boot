@@ -1,10 +1,9 @@
 package com.example.demo.customer.it;
 
-import com.example.demo.customer.dtos.CustomerDto;
-import com.example.demo.customer.entities.Customer;
-import com.example.demo.customer.mappers.CustomerMapperImpl;
-import com.example.demo.customer.services.UpdateCustomerService;
 import com.example.demo.customer.CustomerMother;
+import com.example.demo.customer.mappers.CustomerMapperImpl;
+import com.example.demo.customer.repositories.CustomerRepository;
+import com.example.demo.customer.services.UpdateCustomerService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -13,8 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import com.example.demo.customer.repositories.CustomerRepository;
 
 @Tag("service-db")
 @DataJpaTest(showSql = false, properties = {"spring.datasource.url=jdbc:h2:mem:testdb"}, useDefaultFilters = false)

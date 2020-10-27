@@ -17,7 +17,7 @@ import org.springframework.core.env.Environment;
 public class OpenApi30Config {
 
     private final Environment env;
-    
+
     @Bean
     public OpenAPI openAPI() {
         final var securitySchemeName = "bearerAuth";
@@ -27,8 +27,8 @@ public class OpenApi30Config {
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(components(securitySchemeName));
     }
-    
-    private String getAppUrl(){
+
+    private String getAppUrl() {
         String url = env.getProperty("app.url");
         if (url == null) {
             return "/";

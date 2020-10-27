@@ -13,7 +13,7 @@ public interface CustomerMapper {
 
     @Mapping(target = "id", ignore = true)
     Customer map(String name);
-    
+
     @Mapping(target = "id", ignore = true)
     Customer map(CustomerDto customerDto, @MappingTarget Customer customer);
 }

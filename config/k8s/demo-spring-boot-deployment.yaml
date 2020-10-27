@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: demo-spring-boot
   labels:
     service: demo-spring-boot
     app: demo
-  name: demo-spring-boot
 spec:
   selector:
     matchLabels:

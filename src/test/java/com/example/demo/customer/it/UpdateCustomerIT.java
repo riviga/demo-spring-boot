@@ -1,6 +1,5 @@
 package com.example.demo.customer.it;
 
-import com.example.demo.customer.dtos.CustomerDto;
 import com.example.demo.customer.CustomerAgent;
 import com.example.demo.customer.CustomerMother;
 import lombok.RequiredArgsConstructor;

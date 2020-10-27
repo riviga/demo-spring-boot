@@ -1,7 +1,6 @@
 package com.example.demo.customer.services;
 
 import com.example.demo.customer.dtos.CustomerDto;
-import com.example.demo.customer.entities.Customer;
 import com.example.demo.customer.mappers.CustomerMapper;
 import com.example.demo.customer.repositories.CustomerRepository;
 import lombok.NonNull;

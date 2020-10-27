@@ -1,7 +1,7 @@
 package com.example.demo.customer.cucumber;
 
-import com.example.demo.customer.dtos.CustomerDto;
 import com.example.demo.customer.CustomerAgent;
+import com.example.demo.customer.dtos.CustomerDto;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

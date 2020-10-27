@@ -1,11 +1,9 @@
 package com.example.demo.customer.it;
 
-import com.example.demo.customer.dtos.CustomerDto;
 import com.example.demo.customer.CustomerAgent;
 import com.example.demo.customer.CustomerMother;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -31,7 +29,6 @@ public class SearchCustomersByNameIT {
     public void testSearchCustomersByNameHappyCase() throws Exception {
         // Given
         var name = "John";
-        // customerAgent.registered().authenticated();
         var expectedResult = Arrays.asList(customerMother.johnDto(), customerMother.john2Dto(), customerMother.john3Dto());
         expectedResult.forEach(u -> customerAgent.createCustomer(u));
 
@@ -46,7 +43,6 @@ public class SearchCustomersByNameIT {
     public void testSearchCustomersByNameOneHappyCase() throws Exception {
         // Given
         var name = "Peter";
-        // customerAgent.registered().authenticated();
         var expectedResult = Arrays.asList(customerMother.peterDto());
         customerAgent.createCustomer(customerMother.peterDto());
 
@@ -61,7 +57,6 @@ public class SearchCustomersByNameIT {
     public void testSearchCustomersByNameEmptyHappyCase() throws Exception {
         // Given
         var name = "None";
-        //customerAgent.registered().authenticated();
         var expectedResult = Collections.emptyList();
 
         // When

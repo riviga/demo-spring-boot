@@ -1,10 +1,10 @@
 package com.example.demo.customer.services;
 
+import com.example.demo.customer.repositories.CustomerRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.demo.customer.repositories.CustomerRepository;
 
 @Service
 @RequiredArgsConstructor

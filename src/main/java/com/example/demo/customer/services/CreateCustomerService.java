@@ -1,7 +1,6 @@
 package com.example.demo.customer.services;
 
 import com.example.demo.customer.dtos.CustomerDto;
-import com.example.demo.customer.entities.Customer;
 import com.example.demo.customer.mappers.CustomerMapper;
 import com.example.demo.customer.repositories.CustomerRepository;
 import lombok.NonNull;
@@ -17,11 +16,11 @@ public class CreateCustomerService {
 
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
-    
+
     @Transactional
     public void createCustomer(@NonNull CustomerDto customerDto) {
         notNull(customerDto.getName(), "El nombre no puede ser nulo");
-        var customer = customerMapper.map(customerDto.getName()); 
+        var customer = customerMapper.map(customerDto.getName());
         customerRepository.save(customer);
     }
 }

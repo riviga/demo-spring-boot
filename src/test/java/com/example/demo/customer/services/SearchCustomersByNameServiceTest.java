@@ -1,9 +1,10 @@
 package com.example.demo.customer.services;
 
-import com.example.demo.customer.services.SearchCustomersByNameService;
 import com.example.demo.customer.CustomerMother;
 import com.example.demo.customer.dtos.CustomerDto;
 import com.example.demo.customer.entities.Customer;
+import com.example.demo.customer.mappers.CustomerMapper;
+import com.example.demo.customer.repositories.CustomerRepository;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -19,9 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
-
-import com.example.demo.customer.mappers.CustomerMapper;
-import com.example.demo.customer.repositories.CustomerRepository;
 
 @Tag("unit-test")
 @ExtendWith(MockitoExtension.class)
