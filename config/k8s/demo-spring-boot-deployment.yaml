@@ -67,4 +67,11 @@ spec:
           limits:
             cpu: 1000m
             memory: 512Mi
+        volumeMounts:
+        - name: volume-properties-config-map
+          mountPath: /app/config/
+      volumes:
+      - name: volume-properties-config-map
+        configMap:
+          name: demo-spring-boot-config-map
       restartPolicy: Always

@@ -7,7 +7,7 @@ WORK_DIR=demo-app
 function copy_files_minikube() {
     scp -i $(minikube ssh-key) Dockerfile docker@$(minikube ip):"$WORK_DIR/"
     scp -i $(minikube ssh-key) target/*.jar docker@$(minikube ip):"$WORK_DIR/target/"
-    scp -i $(minikube ssh-key) config/docker/application.yaml docker@$(minikube ip):"$WORK_DIR/config/docker/"
+#   scp -i $(minikube ssh-key) config/docker/application.yaml docker@$(minikube ip):"$WORK_DIR/config/docker/"
 }
 
 function build_docker_minikube() {
