@@ -36,6 +36,8 @@ public class JwtSecurityConfigurer extends WebSecurityConfigurerAdapter {
         "/**/*.png",
         "/**/*.pdf",
         "/v3/api-docs/**",
+        "/actuator",
+        "/actuator/**",
         "/webjars/**",};
 
     protected String[] getWhiteListPatterns() {

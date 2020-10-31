@@ -6,6 +6,6 @@ WORKDIR /app
 COPY target/*.jar demo-spring-boot.jar
 ADD config/docker/application.yaml config/application.yaml
 
-EXPOSE 8080
+EXPOSE 8080 8081
 
-ENTRYPOINT ["java", "-jar", "demo-spring-boot.jar", "-Dspring.config.location=config/application.yaml"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom ", "-jar", "demo-spring-boot.jar", "-Dspring.config.location=config/application.yaml"]

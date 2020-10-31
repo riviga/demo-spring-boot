@@ -14,6 +14,9 @@ docker run --rm -it \
     --env POSTGRES_USER=${DB_USERNAME} \
     --env POSTGRES_PASSWORD=${DB_PASSWORD} \
     --volume $VOLUME:/var/lib/postgresql/data \
-    --label "traefik.enable=false" \
-    --name "demo-postgres" \
+    --label 'traefik.enable=false' \
+    --name 'demo-postgres' \
+    --label 'app=demo' \
+    --label 'component=demo-postgres' \
+    --label 'tier=database' \
     "postgres:12-alpine"

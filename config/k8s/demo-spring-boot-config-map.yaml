@@ -51,3 +51,13 @@ data:
 
     app:
         url: ${APP_URL}
+
+    management:
+        security:
+            enabled: false
+        server:
+            port: 8081
+        endpoints:
+            web:
+                exposure:
+                    include: "*"
