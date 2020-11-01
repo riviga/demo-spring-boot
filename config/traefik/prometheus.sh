@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd `dirname $0`
 
 docker run --rm -it \
     --network demo-network \

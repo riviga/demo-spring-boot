@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd `dirname $0`
+
 . .env
 
 INSTANCE="demo-spring-boot-$(date | sha1sum | cut -c1-8)"
